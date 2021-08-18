@@ -144,6 +144,7 @@ const CenterContainer = styled.div`
   @media (${device.sm}) {
     padding: 0 200px;
     margin-top: 150px;
+    flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
   }
