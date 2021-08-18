@@ -18,7 +18,7 @@ module.exports = {
     '*': ['common'],
   },
   loadLocaleFrom: async (lang, _ns) => {
-    const res = await fetch(`https://api.jsonbin.io/b/${getId(lang)}`);
+    const res = await fetch(`https://api.jsonbin.io/b/${getId(lang)}/latest`);
     return res.json();
   },
 };
