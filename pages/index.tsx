@@ -28,6 +28,7 @@ const Img = styled.div`
   bottom: ${(props: ImageDivTypes) => props.bottom || ''};
   width: ${(props: ImageDivTypes) => props.width || ''};
   height: ${(props: ImageDivTypes) => props.height || ''};
+  z-index: 1;
 `;
 
 interface BlurredDotsTypes extends ImageDivTypes {

@@ -13,10 +13,14 @@ const MyButton = styled(Button)`
     height: 75.51px;
   }
   @media (${device.md}) {
-    width: 300.99px;
-    height: 100.51px;
+    width: 280px;
+    height: 88px;
   }
   @media (${device.lg}) {
+    width: 372.99px;
+    height: 120.51px;
+  }
+  @media (${device.xl}) {
     width: 492.99px;
     height: 168.51px;
   }
@@ -36,10 +40,14 @@ const TxT = styled.span`
     line-height: 50px;
   }
   @media (${device.md}) {
+    font-size: 40px;
+    line-height: 100px;
+  }
+  @media (${device.lg}) {
     font-size: 48px;
     line-height: 150px;
   }
-  @media (${device.lg}) {
+  @media (${device.xl}) {
     font-size: 72px;
     line-height: 150px;
   }
@@ -54,7 +62,7 @@ const chooseSize = (size: string) => {
     case 'md':
       return 40;
     case 'lg':
-      return 60;
+      return 50;
     default:
       return 100;
   }
