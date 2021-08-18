@@ -167,8 +167,8 @@ const Content = () => {
       </LearnBlock>
       <JoinUs>
         <JoinUsInner>
-          <JoinButton icon="/twitter.svg">Twitter</JoinButton>
-          <JoinButton icon="/telegram.svg">Telegram</JoinButton>
+          <JoinButton link="https://twitter.com/OuchiFinance" icon="/twitter.svg">Twitter</JoinButton>
+          <JoinButton link="https://t.me/OuchiFinance" icon="/telegram.svg">Telegram</JoinButton>
         </JoinUsInner>
       </JoinUs>
       <FooterDiv>

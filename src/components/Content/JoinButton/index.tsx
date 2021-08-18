@@ -72,9 +72,14 @@ const chooseSize = (size: string) => {
   }
 };
 
+const Link = styled.a`
+  text-decoration: none;
+`;
+
 const JoinButton = ({
   children,
   icon,
+  link,
   ...props
 }: any) => {
   const width = useWidth();
@@ -82,12 +87,14 @@ const JoinButton = ({
   const size = useMemo(() => chooseSize(width), [width]);
 
   return (
-    <MyButton
-      {...props}
-      startIcon={<Image src={icon} alt="icon" width={size} height={size} />}
-    >
-      <TxT>{children}</TxT>
-    </MyButton>
+    <Link href={link} target="_blank" rel="noreferrer">
+      <MyButton
+        {...props}
+        startIcon={<Image src={icon} alt="icon" width={size} height={size} />}
+      >
+        <TxT>{children}</TxT>
+      </MyButton>
+    </Link>
   );
 };
 

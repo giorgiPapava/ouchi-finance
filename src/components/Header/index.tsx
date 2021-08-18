@@ -92,11 +92,31 @@ const Last = styled.div`
   }
 `;
 
-const HeaderLinks = styled.span`
+const HeaderLinks = styled.a`
   font-family: FiraGO;
   font-style: normal;
   font-weight: 900;
-
+  text-decoration: none;
+  color: ${(props) => props.theme.palette.primary.primary};
+  @media (${device.sm}) {
+    font-size: 12px;
+    line-height: normal;
+  }
+  @media (${device.md}) {
+    font-size: 18px;
+    line-height: normal;
+  }
+  @media (${device.lg}) {
+    font-size: 24px;
+    line-height: 30px;
+  }
+`;
+const HeaderLinksSoc = styled.a`
+  font-family: FiraGO;
+  font-style: normal;
+  font-weight: 900;
+  text-decoration: none;
+  margin-top: 5px;
   color: ${(props) => props.theme.palette.primary.primary};
   @media (${device.sm}) {
     font-size: 12px;
@@ -137,31 +157,75 @@ const chooseSize = (size: string) => {
   switch (size) {
     case 'xs':
       return {
+        soc: {
+          h: 24,
+          w: 32,
+        },
         icon: 24,
         main: 72,
+        font: '12px',
       };
     case 'sm':
       return {
+        soc: {
+          h: 24,
+          w: 32,
+        },
         icon: 18,
         main: 72,
+        font: '18px',
       };
     case 'md':
       return {
+        soc: {
+          h: 28,
+          w: 40,
+        },
         icon: 22,
         main: 100,
+        font: '22px',
       };
     case 'lg':
       return {
+        soc: {
+          h: 28,
+          w: 40,
+        },
         icon: 25,
         main: 112,
+        font: '22px',
       };
     default:
       return {
+        soc: {
+          h: 28,
+          w: 40,
+        },
         icon: 25,
         main: 112,
+        font: '24px',
       };
   }
 };
+
+export const Links = [
+  {
+    label: 'app',
+    link: '#',
+  },
+  {
+    label: 'mission',
+    link: 'https://ouchi.earth/english',
+  },
+  {
+    label: 'git',
+    link: '#',
+  },
+  {
+    label: 'docs',
+    link: '#',
+  },
+];
 
 const Header = () => {
   const width = useWidth();
@@ -187,17 +251,41 @@ const Header = () => {
           <Title>{t('title')}</Title>
         </First>
         <Last>
-          {['app', 'mission', 'git', 'docs'].map((title: string) => (
-            <HeaderLinks>{t(title)}</HeaderLinks>
+          {Links.map(({ link, label }) => (
+            <HeaderLinks href={link} target="_blank" rel="noreferrer">{t(label)}</HeaderLinks>
           ))}
-          <ThemeImg
-            onClick={toggleTheme}
-            src={currentTheme === 'dark' ? '/sun.svg' : '/moon.svg'}
-            alt="logo"
-            width={size.icon}
-            height={size.icon}
-          />
-          <MyBtn>{t('mainBtn')}</MyBtn>
+          <HeaderLinksSoc href="https://twitter.com/OuchiFinance" target="_blank" rel="noreferrer">
+            <Image
+              onClick={toggleTheme}
+              src="/twitter.svg"
+              alt="twitter"
+              width={size.soc.w}
+              height={size.soc.h}
+            />
+          </HeaderLinksSoc>
+          <HeaderLinksSoc href="https://t.me/OuchiFinance" target="_blank" rel="noreferrer">
+            <Image
+              onClick={toggleTheme}
+              src="/telegram.svg"
+              alt="telegram"
+              width={size.soc.w}
+              height={size.soc.h}
+            />
+          </HeaderLinksSoc>
+          <div style={{
+            marginLeft: 44,
+            marginRight: 16,
+          }}
+          >
+            <ThemeImg
+              onClick={toggleTheme}
+              src={currentTheme === 'dark' ? '/sun.svg' : '/moon.svg'}
+              alt="logo"
+              width={size.icon}
+              height={size.icon}
+            />
+          </div>
+          <MyBtn fontSize={size.font}>{t('mainBtn')}</MyBtn>
         </Last>
       </HeaderRoot>
       <Mobile>

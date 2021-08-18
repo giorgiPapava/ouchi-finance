@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { device } from '@src/themes/sizes';
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
+import { Links } from '../index';
 
 interface StyleProp {
   open: boolean
@@ -47,9 +48,9 @@ const Menu = ({ open }: StyleProp) => {
   const { t } = useTranslation('common');
   return (
     <StyledMenu open={open}>
-      {['app', 'mission', 'git', 'docs'].map((title: string) => (
-        <a href="/">
-          <span>{t(title)}</span>
+      {Links.map(({ label, link }) => (
+        <a href={link} target="_blank" rel="noreferrer">
+          <span>{t(label)}</span>
         </a>
       ))}
     </StyledMenu>
