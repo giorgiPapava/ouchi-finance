@@ -2,11 +2,16 @@ import styled from 'styled-components';
 import { device } from '@src/themes/sizes';
 
 const ContentRoot = styled.div`
-  margin-top: 114px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  @media (${device.xs}) {
+    margin-top: 50px;
+  }
+  @media (${device.sm}) {
+    margin-top: 114px;
+  }
   & > * {
     z-index: 2;
   }
@@ -17,6 +22,10 @@ const TXT1 = styled.span`
   font-style: normal;
   font-weight: 900;
   color: ${(props) => props.theme.palette.primary.primary};
+  @media (${device.xs}) {
+    font-size: 24px;
+    line-height: normal;
+  }
   @media (${device.sm}) {
     font-size: 32px;
     line-height: normal;
@@ -39,9 +48,18 @@ const TXT2 = styled.span`
   font-style: normal;
   font-weight: 900;
   color: ${(props) => props.theme.palette.primary.toggleGrey};
+  @media (${device.xs}) {
+    font-size: 10px;
+    line-height: normal;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
   @media (${device.sm}) {
     font-size: 12px;
     line-height: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   @media (${device.md}) {
     font-size: 18px;
@@ -65,6 +83,10 @@ const CenterMain = styled.span`
   text-align: center;
   color: ${(props: any) => props.theme.palette.primary.primary};
   opacity: ${(props: any) => props.opacity || 1};
+  @media (${device.xs}) {
+    font-size: 48px;
+    line-height: 72px;
+  }
   @media (${device.sm}) {
     font-size: 32px;
     line-height: 50px;
@@ -90,6 +112,10 @@ const CenterDesc = styled.span`
   align-items: center;
   text-align: center;
   color: ${(props) => props.theme.palette.primary.primary};
+  @media (${device.xs}) {
+    font-size: 12px;
+    line-height: normal;
+  }
   @media (${device.sm}) {
     font-size: 12px;
     line-height: normal;
@@ -109,13 +135,17 @@ const CenterDesc = styled.span`
 `;
 const CenterContainer = styled.div`
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   width: 100%;
-
+  @media (${device.xs}) {
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+  }
   @media (${device.sm}) {
     padding: 0 200px;
     margin-top: 150px;
+    align-items: flex-start;
+    justify-content: space-between;
   }
   @media (${device.md}) {
     padding: 0 240px;
@@ -142,10 +172,16 @@ const LearnBlock = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @media (${device.xs}) {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
   @media (${device.sm}) {
     margin-top: 100px;
   }
   @media (${device.md}) {
+    margin-bottom: 0;
     margin-top: 180px;
   }
   @media (${device.lg}) {
@@ -163,6 +199,10 @@ const LearnTitle = styled.span`
   align-items: center;
   text-align: center;
   color: ${(props) => props.theme.palette.primary.primary};
+  @media (${device.xs}) {
+    font-size: 24px;
+    line-height: normal;
+  }
   @media (${device.sm}) {
     font-size: 32px;
     line-height: 50px;
@@ -188,8 +228,15 @@ const LearnDesc = styled.span`
   align-items: center;
   text-align: center;
   color: ${(props) => props.theme.palette.primary.toggleGrey};
+  @media (${device.xs}) {
+    font-size: 10px;
+    width: 90%;
+    margin: 0 16px;
+    line-height: normal;
+  }
   @media (${device.sm}) {
     font-size: 12px;
+    margin: 0;
     line-height: 50px;
   }
   @media (${device.md}) {
@@ -210,6 +257,11 @@ const CardsBlock = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (${device.xs}) {
+    padding: 0;
+    gap: 32px;
+    flex-direction: column;
+  }
   @media (${device.sm}) {
     padding: 0;
     gap: 32px;
@@ -242,6 +294,11 @@ const CardsOutter = styled.div`
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
+  @media (${device.xs}) {
+    width: 200px;
+    height: 200px;
+    gap: 32px;
+  }
   @media (${device.sm}) {
     width: 250.99px;
     height: 250.22px;
@@ -274,6 +331,10 @@ const CardsTxT = styled.span`
   align-items: center;
   text-align: center;
   color: #ffffff;
+  @media (${device.xs}) {
+    font-size: 24px;
+    line-height: normal;
+  }
   @media (${device.sm}) {
     font-size: 32px;
     line-height: 50px;
@@ -296,6 +357,10 @@ const ImgOutter = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-around;
+  @media (${device.xs}) {
+    width: 100.93px;
+    height: 100.65px;
+  }
   @media (${device.sm}) {
     width: 100.93px;
     height: 100.65px;
@@ -324,6 +389,9 @@ const JoinUsInner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (${device.xs}) {
+    gap: 40px;
+  }
   @media (${device.sm}) {
     gap: 40px;
   }
@@ -343,6 +411,10 @@ const FooterDiv = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  @media (${device.xs}) {
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
   @media (${device.sm}) {
     margin-top: 100px;
     margin-bottom: 30px;
@@ -375,6 +447,10 @@ const FooterTxt = styled.span`
   display: flex;
   align-items: center;
   color: #ffffff;
+  @media (${device.xs}) {
+    font-size: 12px;
+    line-height: 50px;
+  }
   @media (${device.sm}) {
     font-size: 12px;
     line-height: 50px;

@@ -6,13 +6,46 @@ import { actions, selectors, ThemesEnum } from '@src/slices/themeSlice';
 import MyBtn from '@src/components/Button';
 import useTranslation from 'next-translate/useTranslation';
 import { device, useWidth } from '@src/themes/sizes';
+import Menu, { Burger } from '@src/components/Header/Burger';
 
-const HeaderRoot = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  height: 218px;
-  border-bottom: 2px solid ${(props) => props.theme.palette.primary.lightGrey};
+const Mobile = styled.div`
+  @media (${device.xs}) {
+    padding: 0 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    border-bottom: 1px solid ${(props) => props.theme.palette.primary.lightGrey};
+  }
   @media (${device.sm}) {
+    display: none;
+  }
+
+  & > * {
+    z-index: 3;
+  }
+`;
+
+const ThemeAndBurger = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  gap: 20px;
+`;
+const MobileMenu = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const HeaderRoot = styled.div`
+  grid-template-columns: 1fr 3fr;
+  border-bottom: 2px solid ${(props) => props.theme.palette.primary.lightGrey};
+  @media (${device.xs}) {
+    display: none;
+    height: 80px;
+  }
+  @media (${device.sm}) {
+    display: grid;
     height: 120px;
   }
   @media (${device.md}) {
@@ -103,15 +136,30 @@ const ThemeImg = styled(Image)`
 const chooseSize = (size: string) => {
   switch (size) {
     case 'xs':
-      return 10;
+      return {
+        icon: 24,
+        main: 72,
+      };
     case 'sm':
-      return 18;
+      return {
+        icon: 18,
+        main: 72,
+      };
     case 'md':
-      return 22;
+      return {
+        icon: 22,
+        main: 100,
+      };
     case 'lg':
-      return 25;
+      return {
+        icon: 25,
+        main: 112,
+      };
     default:
-      return 25;
+      return {
+        icon: 25,
+        main: 112,
+      };
   }
 };
 
@@ -130,27 +178,47 @@ const Header = () => {
       ),
     );
   }, [currentTheme, dispatch]);
-
+  const [open, setOpen] = React.useState(false);
   return (
-    <HeaderRoot>
-      <First>
-        <Image src="/img.png" alt="logo" width={112} height={112} />
-        <Title>{t('title')}</Title>
-      </First>
-      <Last>
-        {['app', 'mission', 'git', 'docs'].map((title: string) => (
-          <HeaderLinks>{t(title)}</HeaderLinks>
-        ))}
-        <ThemeImg
-          onClick={toggleTheme}
-          src={currentTheme === 'dark' ? '/sun.svg' : '/moon.svg'}
-          alt="logo"
-          width={size}
-          height={size}
-        />
-        <MyBtn>{t('mainBtn')}</MyBtn>
-      </Last>
-    </HeaderRoot>
+    <>
+      <HeaderRoot>
+        <First>
+          <Image src="/img.png" alt="logo" width={size.main} height={size.main} />
+          <Title>{t('title')}</Title>
+        </First>
+        <Last>
+          {['app', 'mission', 'git', 'docs'].map((title: string) => (
+            <HeaderLinks>{t(title)}</HeaderLinks>
+          ))}
+          <ThemeImg
+            onClick={toggleTheme}
+            src={currentTheme === 'dark' ? '/sun.svg' : '/moon.svg'}
+            alt="logo"
+            width={size.icon}
+            height={size.icon}
+          />
+          <MyBtn>{t('mainBtn')}</MyBtn>
+        </Last>
+      </HeaderRoot>
+      <Mobile>
+        <Image src="/img.png" alt="logo" width={size.main} height={size.main} />
+        <MobileMenu>
+          <ThemeAndBurger>
+            <ThemeImg
+              onClick={toggleTheme}
+              src={currentTheme === 'dark' ? '/sun.svg' : '/moon.svg'}
+              alt="logo"
+              width={size.icon}
+              height={size.icon}
+            />
+            <div>
+              <Menu open={open} />
+              <Burger open={open} setOpen={setOpen} />
+            </div>
+          </ThemeAndBurger>
+        </MobileMenu>
+      </Mobile>
+    </>
   );
 };
 

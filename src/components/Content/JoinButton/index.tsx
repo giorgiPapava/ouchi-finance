@@ -8,7 +8,11 @@ const MyButton = styled(Button)`
   background: ${(props) => props.theme.palette.cards.ordinary};
   box-shadow: ${(props) => props.theme.palette.cards.shadow};
   border-radius: 40px;
+  @media (${device.xs}) {
+   padding: 10px 20px;
+  }
   @media (${device.sm}) {
+    padding: 0;
     width: 250.99px;
     height: 75.51px;
   }
@@ -56,7 +60,7 @@ const TxT = styled.span`
 const chooseSize = (size: string) => {
   switch (size) {
     case 'xs':
-      return 0;
+      return 24;
     case 'sm':
       return 24;
     case 'md':
