@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import MyBtn from '@src/components/Button';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import JoinButton from '@src/components/Content/JoinButton';
+import { useWidth } from '@src/themes/sizes';
 import {
   ContentRoot,
   TXT1,
@@ -61,8 +62,46 @@ const cards = [
   },
 ];
 
+const chooseSize = (size: string) => {
+  switch (size) {
+    case 'xs':
+      return {
+        w: '200px',
+        h: '50px',
+        f: '12px',
+      };
+    case 'sm':
+      return {
+        w: '250px',
+        h: '60px',
+        f: '14px',
+      };
+    case 'md':
+      return {
+        w: '300px',
+        h: '70px',
+        f: '18px',
+      };
+    case 'lg':
+      return {
+        w: '420px',
+        h: '90px',
+        f: '32px',
+      };
+    default:
+      return {
+        w: '493px',
+        h: '128px',
+        f: '48px',
+      };
+  }
+};
+
 const Content = () => {
   const { t } = useTranslation('common');
+  const width = useWidth();
+  const sizes = useMemo(() => chooseSize(width), [width]);
+
   return (
     <ContentRoot>
       <TXT1>A Revolutionary</TXT1>
@@ -70,11 +109,14 @@ const Content = () => {
       <TXT2>
         A trustful farming platform guaranteed by Ethereum validator staking.
       </TXT2>
-      <MyBtn width="493px" height="128px" fontSize="48px">
+      <MyBtn width={sizes.w} height={sizes.h} fontSize={sizes.f} radius="15px">
         {t('mainBtn')}
       </MyBtn>
       <CenterContainer>
-        {centerTexts.map(({ title, desc }) => (
+        {centerTexts.map(({
+          title,
+          desc,
+        }) => (
           <CenterContainerInner key={title}>
             <CenterMain>
               {title}
@@ -93,7 +135,12 @@ const Content = () => {
         </LearnDesc>
       </LearnBlock>
       <CardsBlock>
-        {cards.map(({ title, img, type, size }) => (
+        {cards.map(({
+          title,
+          img,
+          type,
+          size,
+        }) => (
           <>
             {/* @ts-ignore */}
             <CardsOutter type={type} key={title}>

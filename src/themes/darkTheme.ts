@@ -18,7 +18,7 @@ const theme = createMuiTheme({
       shadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     },
     gradients: {
-      body: 'linear-gradient(172.55deg, #FFFFFF 59.61%, rgba(105, 199, 199, 0.5) 94.22%)',
+      body: 'linear-gradient(172.55deg, #000000 59.61%, rgba(105, 199, 199, 0.5) 94.22%)',
       main: 'linear-gradient(92.3deg, #43B8A1 0%, #68C7C6 99.15%)',
     },
   },

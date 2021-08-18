@@ -16,11 +16,12 @@ interface BtnTypes extends ThemeTypes {
   width: string;
   height: string;
   fontSize: string;
+  radius: string;
 }
 
 const MyButton = styled(Button)`
   background: ${(props: BtnTypes) => props.theme.palette.gradients.main};
-  border-radius: 6px;
+  border-radius: ${(props: BtnTypes) => props.radius || '6px'};
   width: ${(props: BtnTypes) => props.width || '297px'};
   height: ${(props: BtnTypes) => props.height || '66px'};
   display: flex;
