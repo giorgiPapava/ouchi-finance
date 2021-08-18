@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MyBtn from '@src/components/Button';
-import { FormattedMessage } from 'react-intl';
+import useTranslation from 'next-translate/useTranslation';
 
 const ContentRoot = styled.div`
   margin-top: 114px;
@@ -29,6 +29,7 @@ const TXT2 = styled.span`
 `;
 
 const Content = () => {
+  const { t } = useTranslation('common');
   return (
     <ContentRoot>
       <TXT1>A Revolutionary</TXT1>
@@ -37,7 +38,7 @@ const Content = () => {
         A trustful farming platform guaranteed by Ethereum validator staking.
       </TXT2>
       <MyBtn width="493px" height="128px" fontSize="48px">
-        <FormattedMessage id="mainBtn" />
+        {t('mainBtn')}
       </MyBtn>
     </ContentRoot>
   );

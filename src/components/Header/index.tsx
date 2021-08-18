@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, selectors, ThemesEnum } from '@src/slices/themeSlice';
 import MyBtn from '@src/components/Button';
-import { FormattedMessage } from 'react-intl';
+import useTranslation from 'next-translate/useTranslation';
 
 const HeaderRoot = styled.div`
   display: grid;
@@ -52,6 +52,7 @@ const ThemeImg = styled(Image)`
 const Header = () => {
   const dispatch = useDispatch();
   const { currentTheme } = useSelector(selectors.selectTheme);
+  const { t } = useTranslation('common');
 
   const toggleTheme = useCallback(() => {
     dispatch(
@@ -65,15 +66,11 @@ const Header = () => {
     <HeaderRoot>
       <First>
         <Image src="/img.png" alt="logo" width={112} height={112} />
-        <Title>
-          <FormattedMessage id="title" />
-        </Title>
+        <Title>{t('title')}</Title>
       </First>
       <Last>
         {['app', 'mission', 'git', 'docs'].map((title: string) => (
-          <HeaderLinks>
-            <FormattedMessage id={title} />
-          </HeaderLinks>
+          <HeaderLinks>{t(title)}</HeaderLinks>
         ))}
         <ThemeImg
           onClick={toggleTheme}
@@ -82,9 +79,7 @@ const Header = () => {
           width={25}
           height={25}
         />
-        <MyBtn>
-          <FormattedMessage id="mainBtn" />
-        </MyBtn>
+        <MyBtn>{t('mainBtn')}</MyBtn>
       </Last>
     </HeaderRoot>
   );

@@ -4,18 +4,14 @@
   "license": "MIT",
   "version": "0.0.1",
   "scripts": {
-    "dev": "yarn i18n && next dev -p 3000",
+    "dev": "next dev -p 3000",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write \"**/*.{js,jsx,json,md,ts,tsx}\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "test": "jest",
     "check-all": "yarn format && yarn lint --fix && yarn type-check",
-    "build": "yarn i18n && next build",
-    "export": "yarn build && next export",
-    "extract:i18n": "formatjs extract '{pages,components,sections}/**/*.{js,ts,tsx}' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
-    "compile:i18n": "formatjs compile-folder --ast --format simple intl/locales intl/compiled-locales",
-    "i18n": "yarn extract:i18n && yarn compile:i18n"
+    "build": "next build"
   },
   "husky": {
     "hooks": {
@@ -39,12 +35,12 @@
     "nanoid": "^3.1.23",
     "next": "latest",
     "next-images": "^1.7.0",
+    "next-translate": "^1.0.7",
     "notistack": "^1.0.7",
     "qs": "^6.10.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-flow-renderer": "^9.6.3",
-    "react-intl": "^5.20.9",
     "react-redux": "^7.2.3",
     "redux-persist": "^6.0.0",
     "redux-saga": "^1.1.3",
