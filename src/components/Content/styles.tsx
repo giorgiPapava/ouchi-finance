@@ -238,6 +238,7 @@ const LearnDesc = styled.span`
   @media (${device.sm}) {
     font-size: 12px;
     margin: 0;
+    width: 100%;
     line-height: 50px;
   }
   @media (${device.md}) {
