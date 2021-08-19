@@ -158,7 +158,7 @@ const Content = () => {
             color: '#fff',
           }}
         >
-          Our Commynity
+          Our Community
         </LearnTitle>
         <LearnDesc>
           Feel free to contact the team, Enjoy chatting with others in the
