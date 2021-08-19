@@ -82,9 +82,9 @@ const blurredDots: BlurredDotsTypes[] = [
     left: {
       xs: '-300px',
       sm: '-300px',
-      md: '-331.06pxn',
-      lg: '-331.06pxn',
-      xl: '-331.06pxn',
+      md: '-170.06px',
+      lg: '-170.06px',
+      xl: '-150.06px',
     },
     top: {
       xs: '100.78px',

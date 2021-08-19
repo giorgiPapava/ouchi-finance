@@ -290,8 +290,7 @@ const CardsBlock = styled.div`
 const CardsOutter = styled.div`
   background: ${(props: any) => props.theme.palette.cards[props.type]};
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: ${(props: any) =>
-    props.type === 'important' ? '15px' : '40px'};
+  border-radius: 40px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
