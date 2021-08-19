@@ -143,11 +143,6 @@ export const Burger = ({ open, setOpen }: MainT) => {
   return (
     <>
       <StyledBurger
-        style={open ? {
-          position: 'fixed',
-          right: 15,
-          top: 24,
-        } : {}}
         open={open}
         onClick={() => setOpen(!open)}
       >
@@ -155,10 +150,6 @@ export const Burger = ({ open, setOpen }: MainT) => {
         <div />
         <div />
       </StyledBurger>
-      <div style={open ? {
-        width: '2rem',
-      } : {}}
-      />
     </>
   );
 };
