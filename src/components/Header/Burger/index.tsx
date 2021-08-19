@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import MyBtn from '@src/components/Button';
+import disableScroll from 'disable-scroll';
 
 interface StyleProp {
   open: boolean
@@ -66,6 +67,7 @@ export const Share = [
 ];
 
 const Menu = ({ open }: StyleProp) => {
+  disableScroll[open ? 'on' : 'off']();
   const { t } = useTranslation('common');
   return (
     <StyledMenu open={open}>
