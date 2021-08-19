@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { device } from '@src/themes/sizes';
 import React from 'react';
+import MyBtn from '@src/components/Button';
 import useTranslation from 'next-translate/useTranslation';
-import { Links } from '../index';
 
 interface StyleProp {
   open: boolean
@@ -14,46 +14,166 @@ const StyledMenu = styled.nav`
   justify-content: center;
   background: ${(props: any) => props.theme.palette.gradients.body};
   transform: ${({ open }: StyleProp) => open ? 'translateX(0)' : 'translateX(-100%)'};
-  height: 100vh;
   text-align: left;
   padding: 2rem;
   position: absolute;
-  top: 0;
+  width: 100%;
+  top: -1rem;
   left: 0;
   transition: transform 0.3s ease-in-out;
-  @media (${device.xs}) {
-      width: 100%;
-    }
-  a {
-    font-size: 2rem;
-    text-transform: uppercase;
-    padding: 2rem 0;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    color: ${(props: any) => props.theme.palette.primary.main};
-    text-decoration: none;
-    transition: color 0.3s linear;
-
-    @media (${device.xs}) {
-      font-size: 1.5rem;
-      text-align: center;
-    }
-
-    &:hover {
-      color: #343078;
-    }
-  }
 `;
+
+const Link = styled.a`
+  text-align: left;
+  font-size: 1.125rem;
+  padding: .5rem 0;
+  color: ${(props: any) => props.theme.palette.primary.main};
+  text-decoration: none;
+  transition: color 0.3s linear;
+
+  &:hover {
+    color: #343078;
+  }
+
+  margin-right: 0.25rem;
+`;
+
+const Title = styled.span`
+  margin-right: 0.25rem;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-weight: bold;
+`;
+
+export const Developers = [
+  {
+    label: 'V3 Documentation',
+    link: '#',
+  },
+  {
+    label: 'V3 Whitepaper',
+    link: '#',
+  },
+  {
+    label: 'GitHub',
+    link: '#',
+  },
+  {
+    label: 'Bug Bounty',
+    link: '#',
+  },
+];
+
+export const Governance = [
+  {
+    label: 'UNI Token',
+    link: '#',
+  },
+  {
+    label: 'Governance Forum',
+    link: '#',
+  },
+  {
+    label: 'Sybil (Delegates)',
+    link: '#',
+  },
+  {
+    label: 'Voting Portal',
+    link: '#',
+  },
+  {
+    label: 'Documentation',
+    link: '#',
+  },
+];
+export const Community = [
+  {
+    label: 'Discord',
+    link: '#',
+  },
+  {
+    label: 'Twitter',
+    link: '#',
+  },
+  {
+    label: 'Reddit',
+    link: '#',
+  },
+];
+export const More = [
+  {
+    label: 'Blog',
+    link: '#',
+  },
+  {
+    label: 'About',
+    link: '#',
+  },
+  {
+    label: 'FAQ',
+    link: '#',
+  },
+  {
+    label: 'Help & Tutorials',
+    link: '#',
+  },
+  {
+    label: 'Logo & Brand',
+    link: '#',
+  },
+];
+
+const Links = [
+  {
+    title: 'Developers',
+    values: Developers,
+  },
+  {
+    title: 'Governance',
+    values: Governance,
+  },
+  {
+    title: 'Community',
+    values: Community,
+  },
+  {
+    title: 'More',
+    values: More,
+  },
+];
 
 const Menu = ({ open }: StyleProp) => {
   const { t } = useTranslation('common');
   return (
     <StyledMenu open={open}>
-      {Links.map(({ label, link }) => (
-        <a href={link} target="_blank" rel="noreferrer">
-          <span>{t(label)}</span>
-        </a>
+      {Links.map(({
+        title,
+        values,
+      }) => (
+        <>
+          <Title>{title}</Title>
+          {
+            values.map(({
+              label,
+              link,
+            }) => (
+              <Link href={link} target="_blank" rel="noreferrer">
+                {label}
+              </Link>
+            ))
+          }
+        </>
       ))}
+      <div style={{
+        marginTop: '1rem',
+        alignSelf: 'flex-end',
+      }}
+      >
+        <MyBtn width="125" height="48" fontSize="12" radius="5px">
+          {t('mainBtn')}
+        </MyBtn>
+      </div>
     </StyledMenu>
   );
 };
@@ -84,27 +204,38 @@ const StyledBurger = styled.button`
     transform-origin: 1px;
 
     :first-child {
-      transform: ${({ open }:StyleProp) => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ open }: StyleProp) => open ? 'rotate(45deg)' : 'rotate(0)'};
     }
 
     :nth-child(2) {
-      opacity: ${({ open }:StyleProp) => open ? '0' : '1'};
-      transform: ${({ open }:StyleProp) => open ? 'translateX(20px)' : 'translateX(0)'};
+      opacity: ${({ open }: StyleProp) => open ? '0' : '1'};
+      transform: ${({ open }: StyleProp) => open ? 'translateX(20px)' : 'translateX(0)'};
     }
 
     :nth-child(3) {
-      transform: ${({ open }:StyleProp) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ open }: StyleProp) => open ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
 `;
 
-interface MainT extends StyleProp{
+interface MainT extends StyleProp {
   setOpen: (_arg0: boolean) => void
 }
 
-export const Burger = ({ open, setOpen }: MainT) => {
+export const Burger = ({
+  open,
+  setOpen,
+}: MainT) => {
   return (
-    <StyledBurger open={open} onClick={() => setOpen(!open)}>
+    <StyledBurger
+      style={open ? {
+        position: 'fixed',
+        right: '1rem',
+        top: '1.5rem',
+      } : {}}
+      open={open}
+      onClick={() => setOpen(!open)}
+    >
       <div />
       <div />
       <div />

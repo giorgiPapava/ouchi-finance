@@ -33,7 +33,7 @@ const MyButton = styled(Button)`
   font-style: normal;
   font-weight: 900;
   font-size: ${(props: BtnTypes) => props.fontSize || '24px'};
-  line-height: 150px;
+  line-height: normal;
 `;
 
 const MyBtn = ({ children, ...props }: any) => {
