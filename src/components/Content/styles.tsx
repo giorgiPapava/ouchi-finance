@@ -335,17 +335,15 @@ const CardsTxT = styled.span`
   @media (${device.xs}) {
     font-size: 24px;
     line-height: normal;
+    padding-bottom: 1rem;
   }
   @media (${device.sm}) {
     font-size: 32px;
     line-height: 50px;
   }
   @media (min-width: 1024px) {
+    padding-bottom: 0;
     font-size: 40px;
-    line-height: 100px;
-  }
-  @media (${device.lg}) {
-    font-size: 48px;
     line-height: 100px;
   }
   @media (${device.xl}) {
