@@ -290,7 +290,7 @@ const CardsBlock = styled.div`
   }`;
 
 const MobileCards = styled.div`
-  width: 80%;
+  width: 100%;
   margin: 10px auto;
   @media (${device.xs}) {
     padding: 0;
@@ -308,7 +308,6 @@ const MobileCards = styled.div`
     flex-direction: row;
     display: none;
   }
-
   & .swiper-pagination {
     bottom: -5px;
   }
@@ -324,14 +323,16 @@ const CardsOutter = styled.div`
   flex-direction: column;
   @media (${device.xs}) {
     width: 80%;
+    max-width: 230px;
     margin: 20px auto 25px;
     height: 230px;
     gap: 32px;
   }
   @media (${device.sm}) {
     width: 80%;
+    max-width: 250px;
     margin: 20px auto 25px;
-    height: 250.22px;
+    height: 250px;
     gap: 32px;
   }
   @media (${device.md}) {
