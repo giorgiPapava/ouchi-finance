@@ -12,6 +12,7 @@ const ContentRoot = styled.div`
   @media (${device.sm}) {
     margin-top: 114px;
   }
+
   & > * {
     z-index: 2;
   }
@@ -262,17 +263,18 @@ const CardsBlock = styled.div`
   @media (${device.xs}) {
     padding: 0;
     gap: 32px;
-    flex-direction: column;
+    display: none;
   }
   @media (${device.sm}) {
     padding: 0;
     gap: 32px;
-    flex-direction: column;
+    display: none;
   }
   @media (${device.md}) {
     padding: 0 100px;
     gap: 20px;
     flex-direction: row;
+    display: flex;
   }
   @media (min-width: 1024px) {
     padding: 0 100px;
@@ -287,6 +289,30 @@ const CardsBlock = styled.div`
     gap: 93px;
   }`;
 
+const MobileCards = styled.div`
+  width: 100%;
+  margin: 10px auto;
+  @media (${device.xs}) {
+    padding: 0;
+    gap: 32px;
+    display: block;
+  }
+  @media (${device.sm}) {
+    padding: 0;
+    gap: 32px;
+    display: block;
+  }
+  @media (${device.md}) {
+    padding: 0 100px;
+    gap: 20px;
+    flex-direction: row;
+    display: none;
+  }
+  & .swiper-pagination {
+    bottom: -5px;
+  }
+}`;
+
 const CardsOutter = styled.div`
   background: ${(props: any) => props.theme.palette.cards[props.type]};
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -296,13 +322,17 @@ const CardsOutter = styled.div`
   justify-content: flex-end;
   flex-direction: column;
   @media (${device.xs}) {
-    width: 200px;
-    height: 200px;
+    width: 80%;
+    max-width: 230px;
+    margin: 20px auto 25px;
+    height: 230px;
     gap: 32px;
   }
   @media (${device.sm}) {
-    width: 250.99px;
-    height: 250.22px;
+    width: 80%;
+    max-width: 250px;
+    margin: 20px auto 25px;
+    height: 250px;
     gap: 32px;
   }
   @media (${device.md}) {
@@ -488,4 +518,5 @@ export {
   FooterDiv,
   FooterInner,
   FooterTxt,
+  MobileCards,
 };

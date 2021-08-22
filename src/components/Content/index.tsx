@@ -4,6 +4,13 @@ import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import JoinButton from '@src/components/Content/JoinButton';
 import { useWidth } from '@src/themes/sizes';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.min.css';
+import 'swiper/components/pagination/pagination.min.css';
+import SwiperCore, {
+  Pagination, Navigation,
+} from 'swiper/core';
+
 import {
   ContentRoot,
   TXT1,
@@ -24,6 +31,7 @@ import {
   FooterDiv,
   FooterInner,
   FooterTxt,
+  MobileCards,
 } from './styles';
 
 const centerTexts = [
@@ -96,6 +104,7 @@ const chooseSize = (size: string) => {
       };
   }
 };
+SwiperCore.use([Pagination, Navigation]);
 
 const Content = () => {
   const { t } = useTranslation('common');
@@ -151,7 +160,37 @@ const Content = () => {
             </CardsOutter>
           </>
         ))}
+
       </CardsBlock>
+      <MobileCards>
+        <Swiper
+          initialSlide={1}
+          effect="fade"
+          className="mySwiper"
+          loop
+          pagination={{
+            type: 'bullets',
+          }}
+        >
+          {cards.map(({
+            title,
+            img,
+            type,
+            size,
+          }) => (
+            <SwiperSlide key={title}>
+              {/* @ts-ignore */}
+              <CardsOutter type={type}>
+                <ImgOutter>
+                  <Image src={img} alt={title} width={size} height={size} />
+                </ImgOutter>
+                <CardsTxT>{title}</CardsTxT>
+              </CardsOutter>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </MobileCards>
+
       <LearnBlock>
         <LearnTitle
           style={{
