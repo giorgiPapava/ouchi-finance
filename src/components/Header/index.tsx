@@ -10,7 +10,7 @@ import Menu, { Burger } from '@src/components/Header/Burger';
 import ToggleTheme from '@src/components/Header/switch';
 
 const Mobile = styled.div`
-  @media (${device.sm}) {
+  @media (${device.xs}) {
     padding: 0 18px;
     display: flex;
     justify-content: space-between;
