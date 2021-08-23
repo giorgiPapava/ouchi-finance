@@ -129,7 +129,9 @@ const HeaderLinksSoc = styled.a`
   }
   @media (${device.lg}) {
     font-size: 24px;
-    line-height: 30px;
+  }
+  @media (${device.xl}) {
+    font-size: 24px;
   }
 `;
 const Title = styled.span`
@@ -149,7 +151,7 @@ const Title = styled.span`
     font-size: 24px;
     line-height: normal;
   }
-  @media (${device.lg}) {
+  @media (${device.xl}) {
     font-size: 36px;
     line-height: 30px;
   }

@@ -134,7 +134,7 @@ const blurredDots: BlurredDotsTypes[] = [
       xs: '900.14px',
       sm: '1100.14px',
       md: '1459.14px',
-      lg: '1400.14px',
+      lg: '1150.14px',
       xl: '1400.14px',
     },
     right: defSizes,
