@@ -203,6 +203,7 @@ const LearnTitle = styled.span`
   display: flex;
   align-items: center;
   text-align: center;
+  line-height: normal;
   color: ${(props) => props.theme.palette.primary.yellow};
   @media (${device.xs}) {
     font-size: 24px;
