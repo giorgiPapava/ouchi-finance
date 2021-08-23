@@ -4,34 +4,27 @@ import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import JoinButton from '@src/components/Content/JoinButton';
 import { useWidth } from '@src/themes/sizes';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.min.css';
-import 'swiper/components/pagination/pagination.min.css';
-import SwiperCore, {
-  Pagination, Navigation,
-} from 'swiper/core';
 
 import {
-  ContentRoot,
-  TXT1,
-  TXT2,
-  CenterMain,
-  CenterDesc,
-  CenterContainer,
-  CenterContainerInner,
-  LearnBlock,
-  LearnTitle,
-  LearnDesc,
   CardsBlock,
   CardsOutter,
   CardsTxT,
-  ImgOutter,
-  JoinUs,
-  JoinUsInner,
+  CenterContainer,
+  CenterContainerInner,
+  CenterDesc,
+  CenterMain,
+  ContentRoot,
   FooterDiv,
   FooterInner,
   FooterTxt,
-  MobileCards,
+  ImgOutter,
+  JoinUs,
+  JoinUsInner,
+  LearnBlock,
+  LearnDesc,
+  LearnTitle,
+  TXT1,
+  TXT2,
 } from './styles';
 
 const centerTexts = [
@@ -104,7 +97,6 @@ const chooseSize = (size: string) => {
       };
   }
 };
-SwiperCore.use([Pagination, Navigation]);
 
 const Content = () => {
   const { t } = useTranslation('common');
@@ -113,14 +105,21 @@ const Content = () => {
 
   return (
     <ContentRoot>
-      <TXT1>A Revolutionary</TXT1>
-      <TXT1>DEX</TXT1>
+      <TXT1>A Revolutionary DEX</TXT1>
       <TXT2>
-        A trustful farming platform guaranteed by Ethereum validator staking.
+        {`A trustful farming platform guaranteed by 
+        Ethereum validator staking You don't 
+        need to wait for the end of Ethereum validator staking 
+        any more Enjoy Defi activities with Ouchi Finance!`}
       </TXT2>
-      <MyBtn width={sizes.w} height={sizes.h} fontSize={sizes.f} radius="15px">
-        {t('mainBtn')}
-      </MyBtn>
+      <div style={{
+        marginTop: '2rem',
+      }}
+      >
+        <MyBtn width={sizes.w} height={sizes.h} fontSize={sizes.f} radius="15px">
+          {t('mainBtn')}
+        </MyBtn>
+      </div>
       <CenterContainer>
         {centerTexts.map(({
           title,
@@ -139,8 +138,14 @@ const Content = () => {
       <LearnBlock>
         <LearnTitle>Learn Ouchi Finance</LearnTitle>
         <LearnDesc>
-          We are bulding a network in the global scale based on the mutual aid
-          with a value put on trust and empathy
+          {
+            `We are building a network in the global scale based on the mutual aid with a value put on trust and 
+            empathy Our community is "an Ouchi (a safe house)" for you in the digital world`
+          }
+        </LearnDesc>
+        <LearnDesc>
+          We will be a platform for you to deal in rights, guaranteed with NFT, to live in an Ouchi even in the real
+          world in the future.
         </LearnDesc>
       </LearnBlock>
       <CardsBlock>
@@ -153,53 +158,27 @@ const Content = () => {
           <>
             {/* @ts-ignore */}
             <CardsOutter type={type} key={title}>
+              {/* @ts-ignore */}
+              <CardsTxT type={type}>{title}</CardsTxT>
               <ImgOutter>
                 <Image src={img} alt={title} width={size} height={size} />
               </ImgOutter>
-              <CardsTxT>{title}</CardsTxT>
             </CardsOutter>
           </>
         ))}
-
       </CardsBlock>
-      <MobileCards>
-        <Swiper
-          initialSlide={1}
-          effect="fade"
-          className="mySwiper"
-          loop
-          pagination={{
-            type: 'bullets',
-          }}
-        >
-          {cards.map(({
-            title,
-            img,
-            type,
-            size,
-          }) => (
-            <SwiperSlide key={title}>
-              {/* @ts-ignore */}
-              <CardsOutter type={type}>
-                <ImgOutter>
-                  <Image src={img} alt={title} width={size} height={size} />
-                </ImgOutter>
-                <CardsTxT>{title}</CardsTxT>
-              </CardsOutter>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </MobileCards>
-
       <LearnBlock>
         <LearnTitle
           style={{
-            color: '#fff',
+            color: '#EDC39B',
           }}
         >
           Our Community
         </LearnTitle>
-        <LearnDesc>
+        <LearnDesc style={{
+          width: '100%',
+        }}
+        >
           Feel free to contact the team, Enjoy chatting with others in the
           community.
         </LearnDesc>

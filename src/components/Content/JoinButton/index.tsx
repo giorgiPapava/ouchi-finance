@@ -21,12 +21,12 @@ const MyButton = styled(Button)`
     height: 88px;
   }
   @media (${device.lg}) {
-    width: 372.99px;
-    height: 120.51px;
+    width: 350px;
+    height: 112px;
   }
   @media (${device.xl}) {
-    width: 492.99px;
-    height: 168.51px;
+    width: 377px;
+    height: 129px;
   }
 `;
 
@@ -39,21 +39,25 @@ const TxT = styled.span`
   align-items: center;
   text-align: center;
   color: ${(props) => props.theme.palette.primary.grey};
-  @media (${device.sm}) {
+  @media (${device.xs}) {
     font-size: 12px;
-    line-height: 50px;
+    margin-left: 0;
+  }
+  @media (${device.sm}) {
+    font-size: 24px;
+    margin-left: 18px;
   }
   @media (${device.md}) {
-    font-size: 40px;
-    line-height: 100px;
+    font-size: 32px;
+    margin-left: 32px;
   }
   @media (${device.lg}) {
-    font-size: 48px;
-    line-height: 150px;
+    font-size: 36px;
+    margin-left: 50px;
   }
   @media (${device.xl}) {
-    font-size: 72px;
-    line-height: 150px;
+    font-size: 36px;
+    margin-left: 50px;
   }
 `;
 
@@ -62,11 +66,13 @@ const chooseSize = (size: string) => {
     case 'xs':
       return 24;
     case 'sm':
-      return 24;
+      return 28;
     case 'md':
       return 40;
     case 'lg':
       return 50;
+    case 'xl':
+      return 70;
     default:
       return 100;
   }

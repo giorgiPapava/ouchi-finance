@@ -12,6 +12,9 @@ const theme = createMuiTheme({
       primary: '#42B7A0',
       grey: '#5B6871',
       toggleGrey: '#5B6871',
+      pink: '#FFBEB0',
+      pink2: '#EDC39B',
+      yellow: '#FFEEB0',
     },
     cards: {
       ordinary: '#E5E5E5',

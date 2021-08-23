@@ -7,9 +7,10 @@ import MyBtn from '@src/components/Button';
 import useTranslation from 'next-translate/useTranslation';
 import { device, useWidth } from '@src/themes/sizes';
 import Menu, { Burger } from '@src/components/Header/Burger';
+import ToggleTheme from '@src/components/Header/switch';
 
 const Mobile = styled.div`
-  @media (${device.xs}) {
+  @media (${device.sm}) {
     padding: 0 18px;
     display: flex;
     justify-content: space-between;
@@ -17,7 +18,7 @@ const Mobile = styled.div`
     height: 80px;
     border-bottom: 1px solid ${(props) => props.theme.palette.primary.lightGrey};
   }
-  @media (${device.sm}) {
+  @media (${device.md}) {
     display: none;
   }
 
@@ -42,13 +43,9 @@ const HeaderRoot = styled.div`
   border-bottom: 2px solid ${(props) => props.theme.palette.primary.lightGrey};
   @media (${device.xs}) {
     display: none;
-    height: 80px;
-  }
-  @media (${device.sm}) {
-    display: grid;
-    height: 120px;
   }
   @media (${device.md}) {
+    display: grid;
     height: 169px;
   }
   @media (${device.lg}) {
@@ -80,11 +77,11 @@ const Last = styled.div`
   align-items: center;
   @media (${device.sm}) {
     height: 120px;
-    gap: 32px;
+    gap: 25px;
   }
-  @media (${device.md}) {
+  @media (max-width: 1400px) {
     height: 169px;
-    gap: 35px;
+    gap: 25px;
   }
   @media (${device.lg}) {
     height: 218px;
@@ -103,6 +100,10 @@ const HeaderLinks = styled.a`
     line-height: normal;
   }
   @media (${device.md}) {
+    font-size: 14px;
+    line-height: normal;
+  }
+  @media (min-width: 1024px) {
     font-size: 18px;
     line-height: normal;
   }
@@ -141,6 +142,10 @@ const Title = styled.span`
     line-height: normal;
   }
   @media (${device.md}) {
+    font-size: 12px;
+    line-height: normal;
+  }
+  @media (min-width: 1024px) {
     font-size: 24px;
     line-height: normal;
   }
@@ -148,9 +153,6 @@ const Title = styled.span`
     font-size: 36px;
     line-height: 30px;
   }
-`;
-const ThemeImg = styled(Image)`
-  cursor: pointer;
 `;
 
 const chooseSize = (size: string) => {
@@ -161,7 +163,7 @@ const chooseSize = (size: string) => {
           h: 24,
           w: 32,
         },
-        icon: 24,
+        icon: 13,
         main: 72,
         font: '12px',
       };
@@ -171,7 +173,7 @@ const chooseSize = (size: string) => {
           h: 24,
           w: 32,
         },
-        icon: 18,
+        icon: 13,
         main: 72,
         font: '18px',
       };
@@ -181,7 +183,7 @@ const chooseSize = (size: string) => {
           h: 28,
           w: 40,
         },
-        icon: 22,
+        icon: 13,
         main: 100,
         font: '22px',
       };
@@ -191,7 +193,7 @@ const chooseSize = (size: string) => {
           h: 28,
           w: 40,
         },
-        icon: 25,
+        icon: 13,
         main: 112,
         font: '22px',
       };
@@ -201,7 +203,7 @@ const chooseSize = (size: string) => {
           h: 28,
           w: 40,
         },
-        icon: 25,
+        icon: 13,
         main: 112,
         font: '24px',
       };
@@ -273,17 +275,11 @@ const Header = () => {
             />
           </HeaderLinksSoc>
           <div style={{
-            marginLeft: 44,
-            marginRight: 16,
+            marginLeft: 16,
+            marginRight: 2,
           }}
           >
-            <ThemeImg
-              onClick={toggleTheme}
-              src={currentTheme === 'dark' ? '/sun.svg' : '/moon.svg'}
-              alt="logo"
-              width={size.icon}
-              height={size.icon}
-            />
+            <ToggleTheme size={size.icon} />
           </div>
           <MyBtn fontSize={size.font}>{t('mainBtn')}</MyBtn>
         </Last>
@@ -292,13 +288,7 @@ const Header = () => {
         <Image src="/img.png" alt="logo" width={size.main} height={size.main} />
         <MobileMenu>
           <ThemeAndBurger>
-            <ThemeImg
-              onClick={toggleTheme}
-              src={currentTheme === 'dark' ? '/sun.svg' : '/moon.svg'}
-              alt="logo"
-              width={size.icon}
-              height={size.icon}
-            />
+            <ToggleTheme size={size.icon} />
             <div>
               <Menu open={open} />
               <Burger open={open} setOpen={setOpen} />
