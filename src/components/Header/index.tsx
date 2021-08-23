@@ -16,12 +16,12 @@ const Mobile = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    border-bottom: 1px solid ${(props) => props.theme.palette.primary.lightGrey};
+    border-bottom: none;
+    margin-top: 10px;
   }
   @media (${device.md}) {
     display: none;
   }
-
   & > * {
     z-index: 3;
   }
@@ -288,7 +288,12 @@ const Header = () => {
         <Image src="/img.png" alt="logo" width={size.main} height={size.main} />
         <MobileMenu>
           <ThemeAndBurger>
-            <ToggleTheme size={size.icon} />
+            <div style={{
+              marginBottom: '1rem',
+            }}
+            >
+              <ToggleTheme size={size.icon} />
+            </div>
             <div>
               <Menu open={open} />
               <Burger open={open} setOpen={setOpen} />

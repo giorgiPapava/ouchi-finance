@@ -20,9 +20,9 @@ const IOSSwitch = withStyles((theme) => ({
       transform: 'translateX(30px)',
       color: theme.palette.common.white,
       '& + $track': {
-        backgroundColor: theme.palette.primary.primary,
+        backgroundColor: 'transparent',
         opacity: 1,
-        border: 'none',
+        border: `1px solid ${theme.palette.primary.primary}`,
       },
     },
     '&$focusVisible $thumb': {
@@ -30,11 +30,11 @@ const IOSSwitch = withStyles((theme) => ({
       border: '6px solid #fff',
     },
   },
-  thumb: ({ lite }) => ({
+  thumb: {
     width: 20,
     height: 20,
-    background: lite ? theme.palette.primary.primary : '#fff',
-  }),
+    background: theme.palette.primary.primary,
+  },
   track: {
     borderRadius: 15,
     border: `1px solid ${theme.palette.grey[400]}`,

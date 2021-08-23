@@ -25,6 +25,7 @@ import {
   LearnTitle,
   TXT1,
   TXT2,
+  MainButton,
 } from './styles';
 
 const centerTexts = [
@@ -69,31 +70,36 @@ const chooseSize = (size: string) => {
       return {
         w: '200px',
         h: '50px',
-        f: '12px',
+        f: '14px',
+        copyR: '20px',
       };
     case 'sm':
       return {
         w: '250px',
         h: '60px',
         f: '14px',
+        copyR: '24px',
       };
     case 'md':
       return {
         w: '300px',
         h: '70px',
         f: '18px',
+        copyR: '25px',
       };
     case 'lg':
       return {
         w: '420px',
         h: '90px',
         f: '32px',
+        copyR: '29px',
       };
     default:
       return {
         w: '493px',
         h: '128px',
         f: '48px',
+        copyR: '29px',
       };
   }
 };
@@ -112,14 +118,11 @@ const Content = () => {
         need to wait for the end of Ethereum validator staking 
         any more Enjoy Defi activities with Ouchi Finance!`}
       </TXT2>
-      <div style={{
-        marginTop: '2rem',
-      }}
-      >
+      <MainButton>
         <MyBtn width={sizes.w} height={sizes.h} fontSize={sizes.f} radius="15px">
           {t('mainBtn')}
         </MyBtn>
-      </div>
+      </MainButton>
       <CenterContainer>
         {centerTexts.map(({
           title,
@@ -194,8 +197,8 @@ const Content = () => {
           <Image
             src="/copy-rights.svg"
             alt="copy-rights"
-            width={29}
-            height={29}
+            width={sizes.copyR}
+            height={sizes.copyR}
           />
           <FooterTxt>2021 Ouchi Finance</FooterTxt>
         </FooterInner>
