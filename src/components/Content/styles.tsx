@@ -24,29 +24,25 @@ const TXT1 = styled.span`
   font-family: FiraGO;
   font-style: normal;
   font-weight: 900;
+  line-height: normal;
   color: ${(props) => props.theme.palette.primary.pink};
   @media (${device.xs}) {
     font-size: 24px;
-    line-height: normal;
     margin-bottom: 1.5rem;
   }
   @media (${device.sm}) {
     font-size: 36px;
-    line-height: normal;
     margin-bottom: 2rem;
   }
   @media (${device.md}) {
     font-size: 48px;
-    line-height: normal;
   }
   @media (${device.lg}) {
     font-size: 72px;
-    line-height: normal;
     margin-bottom: 3rem;
   }
   @media (${device.xl}) {
     font-size: 96px;
-    line-height: normal;
   }
 `;
 
