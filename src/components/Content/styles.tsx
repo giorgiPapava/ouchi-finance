@@ -7,13 +7,13 @@ const ContentRoot = styled.div`
   align-items: center;
   flex-direction: column;
   @media (${device.xs}) {
-    margin-top: 60px;
+    margin-top: 49px;
   }
   @media (${device.md}) {
     margin-top: 114px;
   }
   @media (${device.lg}) {
-    margin-top: 224px;
+    margin-top: 250px;
   }
   & > * {
     z-index: 2;
@@ -27,8 +27,8 @@ const TXT1 = styled.span`
   line-height: normal;
   color: ${(props) => props.theme.palette.primary.pink};
   @media (${device.xs}) {
-    font-size: 24px;
-    margin-bottom: 1.5rem;
+    font-size: 20px;
+    margin-bottom: 30px;
   }
   @media (${device.sm}) {
     font-size: 36px;
@@ -39,7 +39,7 @@ const TXT1 = styled.span`
   }
   @media (${device.lg}) {
     font-size: 72px;
-    margin-bottom: 3rem;
+    margin-bottom: 90px;
   }
   @media (${device.xl}) {
     font-size: 96px;
@@ -48,16 +48,13 @@ const TXT1 = styled.span`
 
 const MainButton = styled.div`
   @media (${device.xs}) {
-    margin-top: 1.5rem;
+    margin-top: 30px;
   }
   @media (${device.sm}) {
     margin-top: 2rem;
   }
   @media (${device.lg}) {
-    margin-top: 3rem;
-  }
-  @media (${device.xl}) {
-    margin-top: 3rem;
+    margin-top: 90px;
   }
 `;
 const TXT2 = styled.span`
@@ -67,9 +64,9 @@ const TXT2 = styled.span`
   color: ${(props) => props.theme.palette.primary.toggleGrey};
   line-height: normal;
   @media (${device.xs}) {
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
-    width: 75%;
+    width: 98%;
   }
   @media (${device.sm}) {
     font-size: 12px;
@@ -144,7 +141,7 @@ const CenterContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   @media (${device.xs}) {
-    margin-top: 50px;
+    margin-top: 55px;
     align-items: center;
     padding: 0 2rem;
   }
@@ -164,7 +161,7 @@ const CenterContainer = styled.div`
   }
   @media (${device.xl}) {
     padding: 0 340px;
-    margin-top: 431px;
+    margin-top: 266px;
   }
 `;
 const CenterContainerInner = styled.div`
@@ -180,7 +177,7 @@ const LearnBlock = styled.div`
   align-items: center;
   flex-direction: column;
   @media (${device.xs}) {
-    margin-top: 50px;
+    margin-top: 70px;
     text-align: center;
   }
   @media (${device.sm}) {
@@ -193,7 +190,7 @@ const LearnBlock = styled.div`
     margin-top: 220px;
   }
   @media (${device.xl}) {
-    margin-top: 320px;
+    margin-top: 250px;
   }
 `;
 const LearnTitle = styled.span`
@@ -206,7 +203,7 @@ const LearnTitle = styled.span`
   line-height: normal;
   color: ${(props) => props.theme.palette.primary.yellow};
   @media (${device.xs}) {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 1.5rem;
   }
   @media (${device.sm}) {
@@ -219,7 +216,7 @@ const LearnTitle = styled.span`
   }
   @media (${device.lg}) {
     margin-bottom: 3rem;
-    font-size: 72px;
+    font-size: 90px;
   }
   @media (${device.xl}) {
     font-size: 96px;
@@ -235,8 +232,8 @@ const LearnDesc = styled.span`
   text-align: center;
   color: ${(props) => props.theme.palette.primary.toggleGrey};
   @media (${device.xs}) {
-    font-size: 10px;
-    width: 80%;
+    font-size: 12px;
+    width: 98%;
   }
   @media (${device.sm}) {
     font-size: 12px;
@@ -261,7 +258,7 @@ const CardsBlock = styled.div`
   @media (${device.xs}) {
     padding: 0;
     gap: 32px;
-    margin-top: 1.5rem;
+    margin-top: 30px;
     flex-direction: column;
   }
   @media (${device.sm}) {
@@ -282,7 +279,7 @@ const CardsBlock = styled.div`
   @media (${device.lg}) {
     padding: 0 100px;
     gap: 160px;
-    margin-top: 3rem;
+    margin-top: 90px;
   }
   @media (${device.xl}) {
     padding: 0 100px;
@@ -415,11 +412,8 @@ const JoinUsInner = styled.div`
     gap: 60px;
   }
   @media (${device.lg}) {
-    margin-top: 3rem;
-    gap: 72px;
-  }
-  @media (${device.xl}) {
-    gap: 93px;
+    margin-top: 90px;
+    gap: 209px;
   }
 `;
 

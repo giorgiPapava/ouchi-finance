@@ -30,15 +30,15 @@ import {
 
 const centerTexts = [
   {
-    title: '$302B',
+    title: '$0',
     desc: 'All Time Volume',
   },
   {
-    title: '75K',
+    title: '0',
     desc: 'Liquidity Providers',
   },
   {
-    title: '58K',
+    title: '0',
     desc: 'All Time Trades',
   },
 ];
@@ -68,9 +68,9 @@ const chooseSize = (size: string) => {
   switch (size) {
     case 'xs':
       return {
-        w: '200px',
-        h: '50px',
-        f: '14px',
+        w: '130px',
+        h: '40px',
+        f: '10px',
         copyR: '20px',
       };
     case 'sm':

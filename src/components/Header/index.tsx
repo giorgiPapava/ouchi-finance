@@ -15,12 +15,13 @@ const Mobile = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 48px;
     border-bottom: none;
-    margin-top: 10px;
+    margin-top: 12px;
   }
   @media (${device.md}) {
     display: none;
+    height: 80px;
   }
   & > * {
     z-index: 3;
@@ -32,7 +33,12 @@ const ThemeAndBurger = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  gap: 20px;
+  @media (${device.xs}) {
+    gap: .5rem;
+  }
+  @media (${device.md}) {
+    gap: 20px;
+  }
 `;
 const MobileMenu = styled.div`
   display: flex;
@@ -157,6 +163,21 @@ const Title = styled.span`
   }
 `;
 
+const ThemeOuter = styled.span`
+  @media (${device.xs}) {
+    margin-bottom: 2.5px;
+  }
+  @media (${device.md}) {
+    font-size: 1rem;
+  }
+`;
+const MobileTitle = styled.span`
+  display: flex;
+  column-gap: 8.1px;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 const chooseSize = (size: string) => {
   switch (size) {
     case 'xs':
@@ -165,8 +186,8 @@ const chooseSize = (size: string) => {
           h: 24,
           w: 32,
         },
-        icon: 13,
-        main: 72,
+        icon: 5,
+        main: 24,
         font: '12px',
       };
     case 'sm':
@@ -175,8 +196,8 @@ const chooseSize = (size: string) => {
           h: 24,
           w: 32,
         },
-        icon: 13,
-        main: 72,
+        icon: 5,
+        main: 24,
         font: '18px',
       };
     case 'md':
@@ -287,15 +308,15 @@ const Header = () => {
         </Last>
       </HeaderRoot>
       <Mobile>
-        <Image src="/img.png" alt="logo" width={size.main} height={size.main} />
+        <MobileTitle>
+          <Image src="/img.png" alt="logo" width={size.main} height={size.main} />
+          <Title>{t('title')}</Title>
+        </MobileTitle>
         <MobileMenu>
           <ThemeAndBurger>
-            <div style={{
-              marginBottom: '1rem',
-            }}
-            >
+            <ThemeOuter>
               <ToggleTheme size={size.icon} />
-            </div>
+            </ThemeOuter>
             <div>
               <Menu open={open} />
               <Burger open={open} setOpen={setOpen} />

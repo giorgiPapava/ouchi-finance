@@ -10,6 +10,8 @@ const MyButton = styled(Button)`
   border-radius: 40px;
   @media (${device.xs}) {
    padding: 10px 20px;
+    width: 122px;
+    height: 42px;
   }
   @media (${device.sm}) {
     padding: 0;

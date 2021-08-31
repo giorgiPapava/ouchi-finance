@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actions, selectors, ThemesEnum } from '@src/slices/themeSlice';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { device } from '@src/themes/sizes';
 
 const IOSSwitch = withStyles((theme) => ({
   root: {
@@ -13,6 +14,10 @@ const IOSSwitch = withStyles((theme) => ({
     height: 30,
     padding: 0,
     marginTop: 7,
+    [theme.breakpoints.down('sm')]: {
+      width: 23,
+      height: 11.5,
+    },
   },
   switchBase: {
     padding: 5,
@@ -29,11 +34,24 @@ const IOSSwitch = withStyles((theme) => ({
       color: theme.palette.primary.primary,
       border: '6px solid #fff',
     },
+    [theme.breakpoints.down('sm')]: {
+      padding: 2.25,
+      '&$checked': {
+        transform: 'translateX(11.5px)',
+      },
+      '&$focusVisible $thumb': {
+        border: '3.5px solid #fff',
+      },
+    },
   },
   thumb: {
     width: 20,
     height: 20,
     background: theme.palette.primary.primary,
+    [theme.breakpoints.down('sm')]: {
+      width: 6.5,
+      height: 6.5,
+    },
   },
   track: {
     borderRadius: 15,
@@ -69,7 +87,12 @@ const LabelDiv = styled.div`
   justify-content: space-between;
   height: 14px;
   align-items: center;
-  width: 40px;
+  @media (${device.xs}) {
+    width: 1rem;
+  }
+  @media (${device.md}) {
+    width: 40px;
+  }
 `;
 
 // eslint-disable-next-line react/prop-types

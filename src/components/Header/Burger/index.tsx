@@ -3,9 +3,10 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import MyBtn from '@src/components/Button';
 import disableScroll from 'disable-scroll';
+import { device } from '@src/themes/sizes';
 
 interface StyleProp {
-  open: boolean
+  open: boolean;
 }
 
 const StyledMenu = styled.nav`
@@ -71,13 +72,19 @@ const Menu = ({ open }: StyleProp) => {
   const { t } = useTranslation('common');
   return (
     <StyledMenu open={open}>
-      { Links.map(({ label, link }) => (
+      {Links.map(({
+        label,
+        link,
+      }) => (
         <HeaderLinks href={link} target="_blank" rel="noreferrer">
           {label}
         </HeaderLinks>
       ))}
       <div style={{ height: '3rem' }} />
-      { Share.map(({ label, link }) => (
+      {Share.map(({
+        label,
+        link,
+      }) => (
         <HeaderLinks href={link} target="_blank" rel="noreferrer">
           {label}
         </HeaderLinks>
@@ -108,40 +115,50 @@ const StyledBurger = styled.button`
   cursor: pointer;
   padding: 0;
   z-index: 101;
+  @media (${device.xs}) {
+    margin-top: .5rem;
+    height: 1.5rem;
+  }
+  @media (${device.md}) {
+    margin-top: 0;
+    height: 2rem;
+  }
 
   &:focus {
     outline: none;
   }
 
   div {
-    width: 2rem;
+    width: 36px;
     height: 0.25rem;
-    background: ${(props: any) => props.theme.palette.primary.main};
-    border-radius: 10px;
+    background: ${(props: any) => props.theme.palette.primary.primary};
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
 
     :first-child {
-      transform: ${({ open }:StyleProp) => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ open }: StyleProp) => open ? 'rotate(45deg)' : 'rotate(0)'};
     }
 
     :nth-child(2) {
-      opacity: ${({ open }:StyleProp) => open ? '0' : '1'};
-      transform: ${({ open }:StyleProp) => open ? 'translateX(20px)' : 'translateX(0)'};
+      opacity: ${({ open }: StyleProp) => open ? '0' : '1'};
+      transform: ${({ open }: StyleProp) => open ? 'translateX(20px)' : 'translateX(0)'};
     }
 
     :nth-child(3) {
-      transform: ${({ open }:StyleProp) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ open }: StyleProp) => open ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
 `;
 
-interface MainT extends StyleProp{
-  setOpen: (_arg0: boolean) => void
+interface MainT extends StyleProp {
+  setOpen: (_arg0: boolean) => void;
 }
 
-export const Burger = ({ open, setOpen }: MainT) => {
+export const Burger = ({
+  open,
+  setOpen,
+}: MainT) => {
   return (
     <>
       <StyledBurger
